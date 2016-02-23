@@ -16,10 +16,10 @@
     class AnimalTest extends PHPUnit_Framework_TestCase
     {
 
-        protected function tearDown()
-        {
-          Animal::deleteAll();
-        }
+        // protected function tearDown()
+        // {
+        //   Animal::deleteAll();
+        // }
 
         function test_getName()
         {
@@ -90,6 +90,10 @@
             $this->assertEquals($test_Animal, $result[0]);
         }
 
+        // function test_typeID() {
+        //
+        // }
+
         // function test_getAll()
         // {
         //     //Arrange
@@ -106,25 +110,25 @@
         //     //Assert
         //     $this->assertEquals([$test_Category, $test_Category2], $result);
         // }
-        //
+
         // function test_deleteAll()
         // {
         //     //Arrange
-        //     $name = "Wash the dog";
-        //     $name2 = "Home stuff";
-        //     $test_Category = new Category($name);
-        //     $test_Category->save();
-        //     $test_Category2 = new Category($name2);
-        //     $test_Category2->save();
+        //     $type = "dog";
+        //     $type2 = "cat";
+        //     $test_Type = new Type($type);
+        //     $test_Type->save();
+        //     $test_Type2 = new Type($type2);
+        //     $test_Type2->save();
         //
         //     //Act
-        //     Category::deleteAll();
-        //     $result = Category::getAll();
+        //     Type::deleteAll();
+        //     $result = Type::getAll();
         //
         //     //Assert
         //     $this->assertEquals([], $result);
         // }
-        //
+
         // function test_find()
         // {
         //     //Arrange

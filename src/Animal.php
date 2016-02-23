@@ -39,7 +39,6 @@
             return $this->type_id;
         }
 
-
         function getId()
         {
             return $this->id;
@@ -71,17 +70,17 @@
           $GLOBALS['DB']->exec("DELETE FROM all_animals;");
         }
 
-        // static function find($search_id)
-        // {
-        //     $found_task = null;
-        //     $tasks = Task::getAll();
-        //     foreach($tasks as $task) {
-        //         $task_id = $task->getId();
-        //         if ($task_id == $search_id) {
-        //           $found_task = $task;
-        //         }
-        //     }
-        //     return $found_task;
-        // }
+        static function find($search_id)
+        {
+            $found_animal = null;
+            $animals = Animal::getAll();
+            foreach($animals as $animal) {
+                $animal_id = $animal->getId();
+                if ($animal_id == $search_id) {
+                  $found_animal = $animal;
+                }
+            }
+            return $found_animal;
+        }
     }
 ?>

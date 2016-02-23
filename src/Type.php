@@ -27,7 +27,7 @@
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO types (name) VALUES ('{$this->getName()}')");
+            $GLOBALS['DB']->exec("INSERT INTO types (animal_type) VALUES ('{$this->getName()}')");
             $this->id= $GLOBALS['DB']->lastInsertId();
         }
 
@@ -46,23 +46,23 @@
         //     return $tasks;
         // }
         //
-        // static function getAll()
-        // {
-        //     $returned_categories = $GLOBALS['DB']->query("SELECT * FROM categories;");
-        //     $categories = array();
-        //     foreach($returned_categories as $category) {
-        //         $name = $category['name'];
-        //         $id = $category['id'];
-        //         $new_category = new Category($name, $id);
-        //         array_push($categories, $new_category);
-        //     }
-        //     return $categories;
-        // }
-        //
-        // static function deleteAll()
-        // {
-        //   $GLOBALS['DB']->exec("DELETE FROM categories;");
-        // }
+        static function getAll()
+        {
+            $returned_types = $GLOBALS['DB']->query("SELECT * FROM types;");
+            $types = array();
+            foreach($returned_types as $type) {
+                $name = $type['animal_type'];
+                $id = $type['id'];
+                $new_type = new Type($name, $id);
+                array_push($types, $new_type);
+            }
+            return $types;
+        }
+
+        static function deleteAll()
+        {
+          $GLOBALS['DB']->exec("DELETE FROM types;");
+        }
         //
         // static function find($search_id)
         // {

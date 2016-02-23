@@ -5,34 +5,34 @@
     * @backupStaticAttributes disabled
     */
 
-    // require_once "src/Animal.php";
-    // require_once "src/Type.php";
-    //
-    // $server = 'mysql:host=localhost;dbname=to_do_test';
-    // $username = 'root';
-    // $password = 'root';
-    // $DB = new PDO($server, $username, $password);
-    //
-    // class TypeTest extends PHPUnit_Framework_TestCase
-    // {
-    //
-    //     protected function tearDown()
-    //     {
-    //       Category::deleteAll();
-    //     }
-    //
-    //     function test_getName()
-    //     {
-    //         //Arrange
-    //         $name = "Work stuff";
-    //         $test_Category = new Category($name);
-    //
-    //         //Act
-    //         $result = $test_Category->getName();
-    //
-    //         //Assert
-    //         $this->assertEquals($name, $result);
-    //     }
+    require_once "src/Animal.php";
+    require_once "src/Type.php";
+
+    $server = 'mysql:host=localhost;dbname=shelter_test';
+    $username = 'root';
+    $password = 'root';
+    $DB = new PDO($server, $username, $password);
+
+    class TypeTest extends PHPUnit_Framework_TestCase
+    {
+
+        protected function tearDown()
+        {
+          Type::deleteAll();
+        }
+
+        function test_getName()
+        {
+            //Arrange
+            $name = "Cat";
+            $test_Type = new Type($name);
+
+            //Act
+            $result = $test_Type->getName();
+
+            //Assert
+            $this->assertEquals($name, $result);
+        }
 
         // function test_getId()
         // {
@@ -48,50 +48,51 @@
         //     $this->assertEquals(true, is_numeric($result));
         // }
         //
-        // function test_save()
-        // {
-        //     //Arrange
-        //     $name = "Work stuff";
-        //     $test_Category = new Category($name);
-        //     $test_Category->save();
-        //
-        //     //Act
-        //     $result = Category::getAll();
-        //
-        //     //Assert
-        //     $this->assertEquals($test_Category, $result[0]);
-        // }
-        //
-        // function test_getAll()
-        // {
-        //     //Arrange
-        //     $name = "Work stuff";
-        //     $name2 = "Home stuff";
-        //     $test_Category = new Category($name);
-        //     $test_Category->save();
-        //     $test_Category2 = new Category($name2);
-        //     $test_Category2->save();
-        //
-        //     //Act
-        //     $result = Category::getAll();
-        //
-        //     //Assert
-        //     $this->assertEquals([$test_Category, $test_Category2], $result);
-        // }
-        //
+        function test_save()
+        {
+            //Arrange
+            $name = "dog";
+            $id = null;
+            $test_type = new Type($name, $id);
+            $test_type->save();
+
+
+            //Act
+            $result = Type::getAll();
+            //Assert
+            $this->assertEquals($test_type, $result[0]);
+        }
+
+        function test_getAll()
+        {
+            //Arrange
+            $type = "dog";
+            $type2 = "cat";
+            $test_type = new Type($type);
+            $test_type->save();
+            $test_type2 = new Type($type2);
+            $test_type2->save();
+
+            //Act
+            $result = type::getAll();
+
+            //Assert
+            $this->assertEquals([$test_type, $test_type2], $result);
+        }
+
         // function test_deleteAll()
         // {
         //     //Arrange
-        //     $name = "Wash the dog";
-        //     $name2 = "Home stuff";
-        //     $test_Category = new Category($name);
-        //     $test_Category->save();
-        //     $test_Category2 = new Category($name2);
-        //     $test_Category2->save();
+        //     $type = "dog";
+        //     $type2 = "cat";
+        //     $test_type = new Type($type);
+        //     $test_type->save();
+        //     $test_type2 = new Type($type2);
+        //     $test_type2->save();
         //
         //     //Act
-        //     Category::deleteAll();
-        //     $result = Category::getAll();
+        //     Type::deleteAll();
+        //     $result = Type::getAll();
         //
         //     //Assert
         //     $this->assertEquals([], $result);
@@ -140,6 +141,6 @@
         //     //Assert
         //     $this->assertEquals([$test_task, $test_task2], $result);
         // }
-    // }
+    }
 
 ?>
